@@ -2,9 +2,9 @@ import cv2
 import os
 
 # --- Configuration ---
-VIDEO_FILENAME = "momika_vi_video_1.mp4"  # <--- IMPORTANT: Change this to your video's exact filename
-TIMESTAMP_MINUTES = 1
-TIMESTAMP_SECONDS = 8
+VIDEO_FILENAME = ""  # <--- IMPORTANT: Change this to your video's exact filename
+TIMESTAMP_MINUTES = 1 #change this to your desired minute mark
+TIMESTAMP_SECONDS = 8 #change this to your desired second mark
 total_seconds = (TIMESTAMP_MINUTES * 60) + TIMESTAMP_SECONDS
 
 #open video file
@@ -24,7 +24,7 @@ else:
 
     
         fps = video_capture.get(cv2.CAP_PROP_FPS)
-        print(f"Frames per second: {fps}")exit
+        print(f"Frames per second: {fps}")
         target_frame_number = int(total_seconds * fps) #verify total secons
         video_capture.set(cv2.CAP_PROP_POS_FRAMES, target_frame_number) #set the frame position using playhead
         success, frame = video_capture.read()
